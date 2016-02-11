@@ -13,6 +13,10 @@ led.py
 Testing writing to GPIO.
 
 
+main.py
+Temporary(?) main file.  (Partially just to point out top functions)
+
+
 readmifare.py
 When run, waits for RFID card and texts before exiting program.
 
