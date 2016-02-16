@@ -34,7 +34,7 @@ Takes a picture and stores it on the SD card
 
 
 door_open.py
-Checks the status of the door pin and returns true if open
+Checks the status of the door pin and returns TRUE if open or FALSE if closed on PIN 16
 
 
 send_mail.py
@@ -46,7 +46,7 @@ Uses gsm module to send text "You mail has been broken into".
 
 
 mail_switch.py
-Return true if mail switch is triggered
+Return true/HIGH on PIN 32 if mail switch is triggered
 
 
 intrusion_check.py
@@ -69,9 +69,11 @@ CLOSE/LOCK = 7
 
 Door:
 Closed = 37
+Status = 16
 
 Mail:
 Trigger = 36
+YesMail = 32
 
 Misc:
 LED = 17
