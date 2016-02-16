@@ -49,6 +49,10 @@ mail_switch.py
 Return true if mail switch is triggered
 
 
+intrusion_check.py
+Will monitor the status of the door while locked and start camera module take pictures.
+
+
 
 ====================
 GPIO Pins
