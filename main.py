@@ -8,8 +8,8 @@ def door_open():
     pass
 
 
-def mail_here():
-    """Returns True from mail_switch.py if there's mail in the box."""
+def mail_switch():
+    """Use mail_switch.py to check for mail, If present if will call send_mail.py."""
     pass
 
 
@@ -33,5 +33,9 @@ def send_mail():
     pass
 
 def cam():
-    """Takes a picture from cam.py and stores in on the card"""
+    """Takes a picture from cam.py and stores in on the card and calls send_alert.py"""
+    pass
+
+def intrusion_check():
+    """Monitors the status of door while locked and calls cam() if opened"""
     pass

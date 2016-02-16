@@ -1,3 +1,10 @@
+#much work to do here, i just copied over mail_switch to get started
+
+
+
+
+
+
 #This subroutine will poll pin 36 to determine if is was pressed
 #GPIO 36 = mail trigger
 #GPIO 32 = yes mail
@@ -22,7 +29,6 @@ try:
     while(True):
         if (not GPIO.input(MAILSWITCH)):
             GPIO.output(YESMAIL, True)  # Set pin high
-            send_mail()                 # call subroutine to send SMS
         time.sleep(0.1)
     
 finally:
