@@ -19,12 +19,12 @@ def mail_here():
 
 
 def lock_door():
-    """Locks door.."""
+    """Locks door Trigger Relay K2.."""
     pass
 
 
 def unlock_door():
-    """Unlocks door.."""
+    """Unlocks door Trigger Relay K1.."""
     pass
 
 
