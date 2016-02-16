@@ -45,6 +45,11 @@ send_alert.py
 Uses gsm module to send text "You mail has been broken into".
 
 
+mail_switch.py
+Return true if mail switch is triggered
+
+
+
 ====================
 GPIO Pins
 ====================
@@ -59,6 +64,9 @@ OPEN/UNLOCK = 8
 CLOSE/LOCK = 7
 
 Door:
+Status = ?
+
+Mail:
 Status = ?
 
 Misc:
