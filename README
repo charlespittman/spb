@@ -1,37 +1,27 @@
 ====================
 Programs
 ====================
-gsm_test.py
+gsm_test.py			(To be removed)
 Sends SMS text
 
 
 ir_test.py
-Testing IR break beam.  (To be removed)
+Testing IR break beam.		(To be removed)
 
 
 led.py
-Testing writing to GPIO.
+Testing writing to GPIO. 	(To be removed)
 
 
-main.py
-Temporary(?) main file.  (Partially just to point out top functions)
+main.py INPROGRESS
+Temporary(?) main file.  	(Partially just to point out top functions)
 
 
-readmifare.py
-When run, waits for RFID card and texts before exiting program.
-
-
-lock_door.py
-Sets pin 7 to high "True". This will take Relay K2 High
-
-
-unlock_door.py
-Sets pin 8 to high "True". This will take Relay K1 High
-
-
-cam.py
-First install by running
-
+=====================
+Subroutines
+=====================
+cam.py INPROGRESS
+First install by running:
 $ sudo apt-get update
 $ sudo apt-get install python3-picamera
 
@@ -39,27 +29,47 @@ To upgrade your installation when new releases are made you can simply use apt’s
 $ sudo apt-get update
 $ sudo apt-get upgrade
 
-Takes a picture and stores it on the SD card
+Takes a picture,stores it on the SD card and calls send_alert.py
 
 
-door_open.py
+
+door_open.py INPROGRESS
 Checks the status of the door pin and returns TRUE if open or FALSE if closed on PIN 16
+
+
+
+intrusion_check.py
+Will monitor the status of the door while locked and calls cam.py if opened.
+
+
+
+lock_door.py INPROGRESS
+Sets pin 7 to high "True". This will take Relay K2 High
+
+
+
+mail_switch.py INPROGRESS
+Return true/HIGH on PIN 32 if mail switch is triggered and calls send_mail.py
+
+
+
+readmifare.py
+When run, waits for RFID card and texts before exiting program.
+
 
 
 send_mail.py
 Uses gsm module to send text "You have mail".
 
 
+
 send_alert.py
 Uses gsm module to send text "You mail has been broken into".
 
 
-mail_switch.py
-Return true/HIGH on PIN 32 if mail switch is triggered
 
-
-intrusion_check.py
-Will monitor the status of the door while locked and start camera module take pictures.
+unlock_door.py INPROGRESS
+Sets pin 8 to high "True". This will take Relay K1 High
 
 
 
