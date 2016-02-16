@@ -3,11 +3,6 @@ def initialize():
     pass
 
 
-def flag_up():
-    """Returns True if flag is up."""
-    pass
-
-
 def door_open():
     """Returns True if door is open."""
     pass
@@ -19,15 +14,24 @@ def mail_here():
 
 
 def lock_door():
-    """Locks door Trigger Relay K2.."""
+    """Locks door on Relay K2.."""
     pass
 
 
 def unlock_door():
-    """Unlocks door Trigger Relay K1.."""
+    """Unlocks door on Relay K1.."""
     pass
 
 
 def send_alert():
-    """Sends a text message with picture attached."""
+    """Sends a text message that you mail has been been broken into."""
+    pass
+
+
+def send_mail():
+    """Sends a text message that you have mail."""
+    pass
+
+def cam():
+    """Takes a picture and stores in on the card"""
     pass
