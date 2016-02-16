@@ -30,6 +30,15 @@ Sets pin 8 to high "True". This will take Relay K1 High
 
 
 cam.py
+First install by running
+
+$ sudo apt-get update
+$ sudo apt-get install python3-picamera
+
+To upgrade your installation when new releases are made you can simply use apt’s normal upgrade procedure:
+$ sudo apt-get update
+$ sudo apt-get upgrade
+
 Takes a picture and stores it on the SD card
 
 
