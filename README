@@ -64,10 +64,10 @@ OPEN/UNLOCK = 8
 CLOSE/LOCK = 7
 
 Door:
-Status = ?
+Closed = 37
 
 Mail:
-Status = ?
+Trigger = 36
 
 Misc:
 LED = 17
