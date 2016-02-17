@@ -16,19 +16,7 @@ Testing writing to GPIO. 	(To be removed)
 main.py INPROGRESS
 Temporary(?) main file.  	(Partially just to point out top functions)
 
-
-=====================
-Subroutines
-=====================
-cam.py INPROGRESS
-First install by running:
-$ sudo apt-get update
-$ sudo apt-get install python3-picamera
-
-To upgrade your installation when new releases are made you can simply use apt’s normal upgrade procedure:
-$ sudo apt-get update
-$ sudo apt-get upgrade
-
+cam.py
 Takes a picture,stores it on the SD card and calls send_alert.py
 
 
