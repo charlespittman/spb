@@ -1,62 +1,55 @@
 ====================
 Programs
 ====================
-gsm_test.py			(To be removed)
+samples/gsm_test.py
 Sends SMS text
 
 
-ir_test.py
-Testing IR break beam.		(To be removed)
+samples/ir_test.py
+Testing IR break beam.
 
 
-led.py
-Testing writing to GPIO. 	(To be removed)
+samples/led.py
+Testing writing to GPIO.
 
 
-main.py INPROGRESS
+main.py
 Temporary(?) main file.  	(Partially just to point out top functions)
+
 
 cam.py
 Takes a picture,stores it on the SD card and calls send_alert.py
 
 
-
-door_open.py INPROGRESS
-Checks the status of the door pin and returns TRUE if open or FALSE if closed on PIN 16
-
+door_open.py
+Checks the status of the door pin and returns True if open or False
 
 
 intrusion_check.py
 Will monitor the status of the door while locked and calls cam.py if opened.
 
 
-
-lock_door.py INPROGRESS
+lock_door.py
 Sets pin 7 to high "True". This will take Relay K2 High
 
 
-
-mail_switch.py INPROGRESS
+mail_switch.py
 Return true/HIGH on PIN 32 if mail switch is triggered and calls send_mail.py
-
 
 
 readmifare.py
 When run, waits for RFID card and texts before exiting program.
 
 
-
 send_mail.py
 Uses gsm module to send text "You have mail".
-
 
 
 send_alert.py
 Uses gsm module to send text "You mail has been broken into".
 
 
-
-unlock_door.py INPROGRESS
+unlock_door.py
 Sets pin 8 to high "True". This will take Relay K1 High
 
 
