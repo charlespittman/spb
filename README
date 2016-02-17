@@ -29,8 +29,8 @@ intrusion_check.py
 Will monitor the status of the door while locked and calls cam.py if opened.
 
 
-lock_door.py
-Sets pin 7 to high "True". This will take Relay K2 High
+door.py
+Locks or unlock door.
 
 
 mail_switch.py
@@ -47,10 +47,6 @@ Uses gsm module to send text "You have mail".
 
 send_alert.py
 Uses gsm module to send text "You mail has been broken into".
-
-
-unlock_door.py
-Sets pin 8 to high "True". This will take Relay K1 High
 
 
 
