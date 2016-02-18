@@ -13,8 +13,8 @@ GPIO.setup(UNLOCK, GPIO.OUT)
 
 
 def lock_door():
-    GPIO.output(LOCK, True)
+    GPIO.output(LOCK, False)
 
 
 def unlock_door():
-    GPIO.output(UNLOCK, True)
+    GPIO.output(UNLOCK, False)
