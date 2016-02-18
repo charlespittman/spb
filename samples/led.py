@@ -2,7 +2,7 @@ import sys
 import RPi.GPIO as GPIO
 
 # Set pin numbering to Broadcom type
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM)
 
 LED = 11
 GPIO.setup(LED, GPIO.OUT)  # Set pin 11 to output

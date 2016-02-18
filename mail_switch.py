@@ -7,7 +7,7 @@ import sys
 import RPi.GPIO as GPIO
 
 # Set pin numbering to Broadcom type
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM)
 
 MAILSWITCH = 36
 YESMAIL = 32

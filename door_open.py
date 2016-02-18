@@ -3,7 +3,7 @@
 import RPi.GPIO as GPIO
 
 # Set pin numbering to Broadcom type
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM)
 
 DOORCLOSE = 37
 DOORSTATUS = 16
