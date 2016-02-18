@@ -3,7 +3,7 @@
 import RPi.GPIO as GPIO
 
 # Set pin numbering to Broadcom type
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM)
 
 LOCK = 7  # Connected to Relay K2
 GPIO.setup(LOCK, GPIO.OUT)
