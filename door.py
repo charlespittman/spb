@@ -1,20 +1,37 @@
 # Locks or unlocks door.
 
+import time
 import RPi.GPIO as GPIO
 
 # Set pin numbering to Broadcom type
 GPIO.setmode(GPIO.BCM)
 
-LOCK = 7  # Connected to Relay K2
-GPIO.setup(LOCK, GPIO.OUT)
+LOCK = 20  # Connected to Relay K2
+GPIO.setup(LOCK, GPIO.OUT, initial=GPIO.HIGH)
 
-UNLOCK = 8  # Connected to Relay K1
-GPIO.setup(UNLOCK, GPIO.OUT)
+UNLOCK = 21  # Connected to Relay K1
+GPIO.setup(UNLOCK, GPIO.OUT, initial=GPIO.HIGH)
 
 
 def lock_door():
-    GPIO.output(LOCK, False)
+    GPIO.output(LOCK, GPIO.LOW)
+    GPIO.output(LOCK, GPIO.HIGH)
 
 
 def unlock_door():
-    GPIO.output(UNLOCK, False)
+    GPIO.output(UNLOCK, GPIO.LOW)
+    GPIO.output(UNLOCK, GPIO.HIGH)
+
+
+def main():
+    lock_door()
+    time.sleep(1)
+    unlock_door()
+    time.sleep(1)
+    lock_door()
+    time.sleep(1)
+    unlock_door()
+    time.sleep(1)
+
+if __name__ == '__main__':
+    main()
