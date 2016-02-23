@@ -15,9 +15,9 @@ GPIO.setup(UNLOCK, GPIO.OUT, initial=GPIO.HIGH)
 
 def lock_door():
     GPIO.output(LOCK, GPIO.LOW)
-    time.sleep(1)
+    time.sleep(5)
     GPIO.output(LOCK, GPIO.HIGH)
-    time.sleep(1)
+    time.sleep(5)
 
 
 def unlock_door():
@@ -28,14 +28,18 @@ def unlock_door():
 
 
 def main():
+    print("Lock")
     lock_door()
-    time.sleep(1)
+    time.sleep(2)
+    print("Unlock")
     unlock_door()
-    time.sleep(1)
+    time.sleep(2)
+    print("Lock")
     lock_door()
-    time.sleep(1)
+    time.sleep(2)
+    print("Unlock")
     unlock_door()
-    time.sleep(1)
+    time.sleep(2)
     GPIO.cleanup()
 
 
