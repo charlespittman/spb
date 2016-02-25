@@ -36,8 +36,10 @@ def main():
     print("Unlock")
     unlock_door()
     time.sleep(2)
-    GPIO.cleanup()
 
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    finally:
+        GPIO.cleanup()
