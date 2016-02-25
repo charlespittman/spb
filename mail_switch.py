@@ -6,8 +6,11 @@ import RPi.GPIO as GPIO
 # Set pin numbering to Broadcom type
 GPIO.setmode(GPIO.BCM)
 
-MAILSWITCH = 36
+MAILSWITCH = 16
 GPIO.setup(MAILSWITCH, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
+LED = 26
+GPIO.setup(LED, GPIO.OUT, initial=GPIO.HIGH)
 
 
 def is_mail():
@@ -20,7 +23,8 @@ def is_mail():
 
 def send_mail():
     """Send mail message."""
-    pass
+    # Just using an LED for now.
+    GPIO.output(LED, GPIO.LOW)
 
 
 def main():
@@ -29,7 +33,9 @@ def main():
         while(True):
             if is_mail():
                 send_mail()
-                time.sleep(0.1)
+            else:
+                GPIO.output(LED, GPIO.HIGH)
+            time.sleep(0.1)
 
     finally:
         GPIO.cleanup()
