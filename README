@@ -64,8 +64,7 @@ OPEN/UNLOCK = 21
 CLOSE/LOCK = 20
 
 Door:
-Closed = 37
-Status = 16
+door_switch = 12
 
 Mail:
 Trigger = 36
