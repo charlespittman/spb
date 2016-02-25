@@ -32,18 +32,18 @@ def unlock_door():
 
 def is_closed():
     """Return True if door is closed."""
-    if GPIO.input(door_switch):
-        return False
-    else:
+    if not GPIO.input(door_switch):
         return True
+    else:
+        return False
 
 
 def is_open():
     """Return True if door is open."""
-    if is_closed():
-        return False
-    else:
+    if GPIO.input(door_switch):
         return True
+    else:
+        return False
 
 
 def main():
