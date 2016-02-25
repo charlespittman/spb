@@ -14,11 +14,13 @@ GPIO.setup(UNLOCK, GPIO.OUT, initial=GPIO.HIGH)
 
 
 def lock_door():
+    """Locks door on Relay K2"""
     GPIO.output(LOCK, GPIO.LOW)
     GPIO.output(LOCK, GPIO.HIGH)
 
 
 def unlock_door():
+    """Unlocks door on Relay K1."""
     GPIO.output(UNLOCK, GPIO.LOW)
     GPIO.output(UNLOCK, GPIO.HIGH)
 

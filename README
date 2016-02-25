@@ -60,8 +60,8 @@ MISO = 24
 SCLK = 25
 
 Lock:
-OPEN/UNLOCK = 8
-CLOSE/LOCK = 7
+OPEN/UNLOCK = 21
+CLOSE/LOCK = 20
 
 Door:
 Closed = 37
