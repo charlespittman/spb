@@ -6,36 +6,32 @@ import RPi.GPIO as GPIO
 # Set pin numbering to Broadcom type
 GPIO.setmode(GPIO.BCM)
 
-MAILSWITCH = 16
-GPIO.setup(MAILSWITCH, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+mail_switch = 16
+GPIO.setup(mail_switch, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 LED = 26
 GPIO.setup(LED, GPIO.OUT, initial=GPIO.HIGH)
 
 
 def is_mail():
-    """Return True if MAILSWITCH is triggered."""
-    if not GPIO.input(MAILSWITCH):
-        return True
-    else:
-        return False
+    """Return True if mail_switch is triggered."""
+    return GPIO.input(mail_switch) == GPIO.LOW
 
 
 def send_mail():
     """Send mail message."""
     # Just using an LED for now.
     GPIO.output(LED, GPIO.LOW)
+    time.sleep(1)
+    GPIO.output(LED, GPIO.HIGH)
 
 
 def main():
     """Poll for mail trigger."""
     try:
         while(True):
-            if is_mail():
-                send_mail()
-            else:
-                GPIO.output(LED, GPIO.HIGH)
-            time.sleep(0.1)
+            GPIO.wait_for_edge(mail_switch, GPIO.FALLING)
+            send_mail()
 
     finally:
         GPIO.cleanup()
