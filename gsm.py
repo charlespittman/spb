@@ -64,10 +64,11 @@ PHONE_NUMBER has no special formatting (10 digits).
 
 
 def main():
-    g = GSM()
+    gsm = GSM("/dev/ttyUSB0")
+    gsm.begin()
 
     # Spam Charles with a text
-    g.send_sms(18433033157, "Hi")
+    gsm.send_sms(18433033157, "Hi")
 
 if __name__ == '__main__':
     main()
