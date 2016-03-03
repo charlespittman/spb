@@ -20,7 +20,7 @@ class GSM(object):
 
     def begin(self):
         """Initialize communication with the GSM module.  Must be called before any
-other calls are made.
+        other calls are made.
 
         """
         print("Initialising Modem...")
@@ -37,7 +37,7 @@ other calls are made.
     def send_sms(self, phone_number, message):
         """Sends MESSAGE to PHONE_NUMBER using gsm module at PORT
 
-PHONE_NUMBER has no special formatting (10 digits).
+        PHONE_NUMBER has no special formatting (10 digits).
         """
 
         # This really should check that the network is connected before sending
