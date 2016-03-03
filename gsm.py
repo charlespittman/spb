@@ -15,16 +15,21 @@ class GSM(object):
         self._baudrate = baudrate
         self._timeout = timeout
 
-        print("Initialising Modem...")
+        self._port = serial.Serial(self._serial_port, self._baudrate,
+                                   timeout=self._timeout)
 
-        self.serialport = serial.Serial(self._port, self._baudrate,
-                                        timeout=self._timeout)
+    def begin(self):
+        """Initialize communication with the GSM module.  Must be called before any
+other calls are made.
+
+        """
+        print("Initialising Modem...")
 
         # The module sets the baudrate automatically based on the first
         # message.
-        self.serialport.write("AT\n")
-        print(self.serialport.readline().strip())
-        print(self.serialport.readline().strip())
+        self._port.write("AT\n")
+        self._readline()
+        self._readline()
 
     def _readline(self):
         self._port.readline().strip()
@@ -40,22 +45,22 @@ PHONE_NUMBER has no special formatting (10 digits).
         print("Sending SMS")
 
         # Sets GSM to "Text-Mode"
-        self.serialport.write("AT+CMGF=1\n")
-        print(self.serialport.readline().strip())
-        print(self.serialport.readline().strip())
+        self._port.write("AT+CMGF=1\n")
+        self._readline()
+        self._readline()
 
         # Start of an SMS cmd
         sms_cmd = 'AT+CMGS="{}"\n'.format(phone_number)
         # ASCII ctrl+z signals the end of the text
         sms_cmd += "{}\x1A".format(message)
-        self.serialport.write(sms_cmd)
+        self._port.write(sms_cmd)
 
         sleep(30)    # Sometimes takes a while to send
-        print(self.serialport.readline().strip())
-        print(self.serialport.readline().strip())
-        print(self.serialport.readline().strip())
-        print(self.serialport.readline().strip())
-        print(self.serialport.readline().strip())
+        self._readline()
+        self._readline()
+        self._readline()
+        self._readline()
+        self._readline()
 
 
 def main():
