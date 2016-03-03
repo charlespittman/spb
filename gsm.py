@@ -4,25 +4,16 @@ import serial
 from time import sleep
 
 
-# I don't know which of the sleep() commands are actually needed.
-
 class GSM(object):
     """Class to encapsulate the GSM module."""
 
-    def __init__(self, port=None, baudrate=None, timeout=None):
+    def __init__(self, serial_port="/dev/ttyAMA0",
+                 baudrate=115200, timeout=30):
         """Set up serial connection to GSM module."""
 
-        self._port = port
-        if port is None:
-            self._port = "/dev/ttyAMA0"
-
+        self._serial_port = serial_port
         self._baudrate = baudrate
-        if baudrate is None:
-            self._baudrate = 115200
-
         self._timeout = timeout
-        if timeout is None:
-            self._timeout = 30
 
         print("Initialising Modem...")
 
