@@ -26,6 +26,9 @@ class GSM(object):
         print(self.serialport.readline().strip())
         print(self.serialport.readline().strip())
 
+    def _readline(self):
+        self._port.readline().strip()
+
     def send_sms(self, phone_number, message):
         """Sends MESSAGE to PHONE_NUMBER using gsm module at PORT
 
