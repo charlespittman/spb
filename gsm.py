@@ -34,7 +34,7 @@ class GSM(object):
         self._port.write("AT\n")
 
     def _readline(self):
-        self._port.readline().strip()
+        return self._port.readline().strip()
 
     def send_sms(self, phone_number, message):
         """Sends MESSAGE to PHONE_NUMBER using gsm module at PORT
