@@ -1,14 +1,18 @@
 #!/usr/bin/env python
 
 import serial
-from time import sleep
 
 
 class GSM(object):
-    """Class to encapsulate the GSM module."""
+    """Class to encapsulate the GSM module.
+
+    Currently output-only.  Not sure how to reliably get data back from the
+    module, which needs to be dealt with eventually.
+
+    """
 
     def __init__(self, serial_port="/dev/ttyAMA0",
-                 baudrate=115200, timeout=30):
+                 baudrate=9600, timeout=30):
         """Set up serial connection to GSM module."""
 
         self._serial_port = serial_port
@@ -28,8 +32,6 @@ class GSM(object):
         # The module sets the baudrate automatically based on the first
         # message.
         self._port.write("AT\n")
-        self._readline()
-        self._readline()
 
     def _readline(self):
         self._port.readline().strip()
@@ -46,21 +48,12 @@ class GSM(object):
 
         # Sets GSM to "Text-Mode"
         self._port.write("AT+CMGF=1\n")
-        self._readline()
-        self._readline()
 
         # Start of an SMS cmd
         sms_cmd = 'AT+CMGS="{}"\n'.format(phone_number)
         # ASCII ctrl+z signals the end of the text
         sms_cmd += "{}\x1A".format(message)
         self._port.write(sms_cmd)
-
-        sleep(30)    # Sometimes takes a while to send
-        self._readline()
-        self._readline()
-        self._readline()
-        self._readline()
-        self._readline()
 
 
 def main():
