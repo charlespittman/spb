@@ -23,7 +23,7 @@ class Door(object):
     def lock(self):
         """Locks door on Relay K2"""
 
-        assert self.is_open(), "Won't lock door while it's open."
+        assert self.is_closed(), "Won't lock door while it's open."
         GPIO.output(self.lock_pin, GPIO.LOW)
         time.sleep(1)
         GPIO.output(self.lock_pin, GPIO.HIGH)
@@ -31,7 +31,7 @@ class Door(object):
     def unlock(self):
         """Unlocks door on Relay K1."""
 
-        assert self.is_open(), "Won't unlock door while it's open."
+        assert self.is_closed(), "Won't unlock door while it's open."
         GPIO.output(self.unlock_pin, GPIO.LOW)
         time.sleep(1)
         GPIO.output(self.unlock_pin, GPIO.HIGH)
