@@ -16,29 +16,30 @@ Testing writing to GPIO.
 main.py
 Temporary(?) main file.  	(Partially just to point out top functions)
 
+*When cam.py is executed we need to forward that information to "gsm.py" to send 
+a message "You're mail has been tampered with"
+
 
 cam.py
-Takes a picture,stores it on the SD card and calls send_alert.py
-
-
-door_open.py
-Checks the status of the door pin and returns True if open or False
+Takes a picture,stores it on the SD card.
 
 
 intrusion_check.py
-Will monitor the status of the door while locked and calls cam.py if opened.
+Monitor the status of the door. 
 
 
 door.py
-Locks or unlock door.
+Locks or unlock door. Before locking the door,"door.py" will check "door_open" status to
+make sure the door is closed before locking.
 
 
 mail_switch.py
-Return true/HIGH on PIN 32 if mail switch is triggered and calls send_mail.py
+Return "True" for mail present and "False" if there is not mail. Calls send_mail.py if true.
 
 
 readmifare.py
-When run, waits for RFID card and texts before exiting program.
+Active only when door is locked. Reads card and unlocks door if correct card is used. No function
+for incorrect card.
 
 
 send_mail.py
