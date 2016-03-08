@@ -11,6 +11,14 @@ class Door(object):
     """Class to encapsulate the GSM module."""
 
     def __init__(self, lock_pin, unlock_pin, switch_pin):
+        """Set up the Door instance.
+
+        Args:
+        lock_pin = Attached to the locking relay
+        unlock_pin = Attached to the unlocking relay
+        switch_pin = Attached to the sensor detecting open/close
+        """
+
         self.lock_pin = lock_pin
         GPIO.setup(self.lock_pin, GPIO.OUT, initial=GPIO.HIGH)
 
@@ -21,17 +29,21 @@ class Door(object):
         GPIO.setup(self.switch_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
     def lock(self):
-        """Locks door on Relay K2"""
+        """Locks door on Relay K2 only if door is closed."""
 
+        # Fail unless the door is closed.
         assert self.is_closed(), "Won't lock door while it's open."
+
         GPIO.output(self.lock_pin, GPIO.LOW)
         time.sleep(1)
         GPIO.output(self.lock_pin, GPIO.HIGH)
 
     def unlock(self):
-        """Unlocks door on Relay K1."""
+        """Unlocks door on Relay K1 if door is closed."""
 
+        # Fail unless the door is closed.
         assert self.is_closed(), "Won't unlock door while it's open."
+
         GPIO.output(self.unlock_pin, GPIO.LOW)
         time.sleep(1)
         GPIO.output(self.unlock_pin, GPIO.HIGH)
