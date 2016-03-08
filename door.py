@@ -45,16 +45,16 @@ def main():
     door = Door(20, 21, 12)
 
     print("Lock")
-    door.lock_door()
+    door.lock()
     time.sleep(2)
     print("Unlock")
-    door.unlock_door()
+    door.unlock()
     time.sleep(2)
     print("Lock")
-    door.lock_door()
+    door.lock()
     time.sleep(2)
     print("Unlock")
-    door.unlock_door()
+    door.unlock()
     time.sleep(2)
 
 
