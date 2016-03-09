@@ -1,54 +1,36 @@
 ====================
 Programs
 ====================
-samples/gsm_test.py
-Sends SMS text
-
-
-samples/ir_test.py
-Testing IR break beam.
-
-
-samples/led.py
-Testing writing to GPIO.
 
 
 main.py
-Temporary(?) main file.  	(Partially just to point out top functions)
 
-*When cam.py is executed we need to forward that information to "gsm.py" to send 
-a message "You're mail has been tampered with"
+
+If lock is engaged and door is opened, pass "alert" to gsm.py
+
+When Mail is triggered call cam.py and gsm.py,also check for door_lock=true, if it is then lock it; else end. The pourpose here is to lock the mailbox the first time mail is present.
 
 
 cam.py
-Takes a picture,stores it on the SD card.
+Takes a picture,stores it on the SD Card
 
 
-intrusion_check.py
-Monitor the status of the door. 
+door_open.py
+Checks the status of the door pin and returns "True" if open or "False" if closed
 
 
 door.py
-Locks or unlock door. Before locking the door,"door.py" will check "door_open" status to
-make sure the door is closed before locking.
+Locks or unlock door.
 
 
 mail_switch.py
-Return "True" for mail present and "False" if there is not mail. Calls send_mail.py if true.
+Return true/HIGH on PIN 32 if mail switch is triggered and calls send_mail.py
 
 
-readmifare.py
-Active only when door is locked. Reads card and unlocks door if correct card is used. No function
-for incorrect card.
-
-
-send_mail.py
-Uses gsm module to send text "You have mail".
-
-
-send_alert.py
-Uses gsm module to send text "You mail has been broken into".
-
+gsm.py
+Monitors RFID for correct card and returns true when found.
+When mail switch is triggered "You have mail"
+When intrusion is triggered "You mail has been broken into"
 
 
 ====================
