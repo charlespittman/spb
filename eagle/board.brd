@@ -647,22 +647,20 @@ design rules under a new name.</description>
 <contactref element="GSM" pad="4"/>
 <wire x1="-16.51" y1="31.75" x2="-30.48" y2="-51.054" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="GPIO18">
+<signal name="SSEL">
 <contactref element="J1" pad="12"/>
-<contactref element="RFID" pad="3"/>
-<wire x1="-16.51" y1="29.21" x2="-33.02" y2="-45.72" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="GPIO23">
+<signal name="SW_MOSI">
 <contactref element="J1" pad="16"/>
 <contactref element="RFID" pad="4"/>
 <wire x1="-16.51" y1="24.13" x2="-30.48" y2="-45.974" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="GPIO24">
+<signal name="SW_MISO">
 <contactref element="J1" pad="18"/>
 <contactref element="RFID" pad="5"/>
 <wire x1="-16.51" y1="21.59" x2="-27.94" y2="-45.72" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="GPIO25">
+<signal name="SW_SCLK">
 <contactref element="J1" pad="22"/>
 <contactref element="RFID" pad="6"/>
 <wire x1="-16.51" y1="16.51" x2="-25.4" y2="-45.974" width="0" layer="19" extent="1-1"/>
@@ -676,7 +674,7 @@ design rules under a new name.</description>
 <signal name="GPIO1">
 <contactref element="J1" pad="28"/>
 </signal>
-<signal name="GPIO12">
+<signal name="DOOR_SWITCH">
 <contactref element="J1" pad="32"/>
 <contactref element="DOOR" pad="5"/>
 <wire x1="-16.51" y1="3.81" x2="-27.94" y2="-40.64" width="0" layer="19" extent="1-1"/>
@@ -684,12 +682,12 @@ design rules under a new name.</description>
 <signal name="GPIO16">
 <contactref element="J1" pad="36"/>
 </signal>
-<signal name="GPIO20">
+<signal name="LCK">
 <contactref element="J1" pad="38"/>
 <contactref element="DOOR" pad="2"/>
 <wire x1="-16.51" y1="-3.81" x2="-35.56" y2="-40.894" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="GPIO21">
+<signal name="UNLCK">
 <contactref element="J1" pad="40"/>
 <contactref element="DOOR" pad="3"/>
 <wire x1="-16.51" y1="-6.35" x2="-33.02" y2="-40.64" width="0" layer="19" extent="1-1"/>
@@ -808,6 +806,9 @@ design rules under a new name.</description>
 <contactref element="S2" pad="3"/>
 <contactref element="C2" pad="2"/>
 <wire x1="-40.0812" y1="-11.1506" x2="-36.83" y2="-58.42" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="SW_SSEL">
+<contactref element="RFID" pad="3"/>
 </signal>
 </signals>
 </board>

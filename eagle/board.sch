@@ -2642,6 +2642,17 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <text x="2.54" y="24.13" size="1.9304" layer="94"> https://creativecommons.org/licenses/by-sa/4.0/</text>
 <text x="1.27" y="11.43" size="2.54" layer="94">Design by:</text>
 </symbol>
+<symbol name="VCC">
+<wire x1="0.762" y1="1.27" x2="0" y2="2.54" width="0.254" layer="94"/>
+<wire x1="0" y1="2.54" x2="-0.762" y2="1.27" width="0.254" layer="94"/>
+<text x="-1.016" y="3.556" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="VCC" x="0" y="0" visible="off" length="short" direction="sup" rot="R90"/>
+</symbol>
+<symbol name="DGND">
+<wire x1="-1.905" y1="0" x2="1.905" y2="0" width="0.254" layer="94"/>
+<text x="-2.54" y="-2.54" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="GND" x="0" y="2.54" visible="off" length="short" direction="sup" rot="R270"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="FRAME-LETTER" prefix="FRAME">
@@ -2663,6 +2674,32 @@ Standard 8.5x11 US Letter frame</description>
 <attribute name="DESIGNER" value="Nobody" constant="no"/>
 <attribute name="VERSION" value="v01" constant="no"/>
 </technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="VCC" prefix="SUPPLY">
+<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
+<gates>
+<gate name="G$1" symbol="VCC" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="GND" prefix="GND">
+<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
+<gates>
+<gate name="1" symbol="DGND" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
 </technologies>
 </device>
 </devices>
@@ -3396,6 +3433,8 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <part name="GSM" library="SparkFun-Connectors" deviceset="M06" device="LOCK"/>
 <part name="C1" library="SparkFun-Passives" deviceset="CAP" device="PTH" value="10nF"/>
 <part name="C2" library="SparkFun-Passives" deviceset="CAP" device="PTH" value="10nF"/>
+<part name="SUPPLY1" library="SparkFun-Aesthetics" deviceset="VCC" device=""/>
+<part name="GND1" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -3414,6 +3453,8 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <instance part="GSM" gate="G$1" x="12.7" y="68.58"/>
 <instance part="C1" gate="G$1" x="119.38" y="55.88" rot="R270"/>
 <instance part="C2" gate="G$1" x="187.96" y="53.34" rot="R90"/>
+<instance part="SUPPLY1" gate="G$1" x="43.18" y="142.24"/>
+<instance part="GND1" gate="1" x="35.56" y="45.72"/>
 </instances>
 <busses>
 </busses>
@@ -3456,19 +3497,14 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <label x="20.32" y="71.12" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="GPIO18" class="0">
+<net name="SSEL" class="0">
 <segment>
 <pinref part="J1" gate="G$1" pin="12"/>
 <wire x1="76.2" y1="101.6" x2="88.9" y2="101.6" width="0.1524" layer="91"/>
 <label x="76.2" y="101.6" size="1.778" layer="95"/>
 </segment>
-<segment>
-<pinref part="RFID" gate="G$1" pin="3"/>
-<wire x1="17.78" y1="99.06" x2="20.32" y2="99.06" width="0.1524" layer="91"/>
-<label x="20.32" y="99.06" size="1.778" layer="95"/>
-</segment>
 </net>
-<net name="GPIO23" class="0">
+<net name="SW_MOSI" class="0">
 <segment>
 <pinref part="J1" gate="G$1" pin="16"/>
 <wire x1="76.2" y1="96.52" x2="88.9" y2="96.52" width="0.1524" layer="91"/>
@@ -3480,7 +3516,7 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <label x="20.32" y="101.6" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="GPIO24" class="0">
+<net name="SW_MISO" class="0">
 <segment>
 <pinref part="J1" gate="G$1" pin="18"/>
 <wire x1="76.2" y1="93.98" x2="88.9" y2="93.98" width="0.1524" layer="91"/>
@@ -3492,7 +3528,7 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <label x="20.32" y="104.14" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="GPIO25" class="0">
+<net name="SW_SCLK" class="0">
 <segment>
 <pinref part="J1" gate="G$1" pin="22"/>
 <wire x1="76.2" y1="88.9" x2="88.9" y2="88.9" width="0.1524" layer="91"/>
@@ -3525,7 +3561,7 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <label x="76.2" y="81.28" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="GPIO12" class="0">
+<net name="DOOR_SWITCH" class="0">
 <segment>
 <pinref part="J1" gate="G$1" pin="32"/>
 <wire x1="76.2" y1="76.2" x2="88.9" y2="76.2" width="0.1524" layer="91"/>
@@ -3544,7 +3580,7 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <label x="76.2" y="71.12" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="GPIO20" class="0">
+<net name="LCK" class="0">
 <segment>
 <pinref part="J1" gate="G$1" pin="38"/>
 <wire x1="76.2" y1="68.58" x2="88.9" y2="68.58" width="0.1524" layer="91"/>
@@ -3556,7 +3592,7 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <label x="20.32" y="124.46" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="GPIO21" class="0">
+<net name="UNLCK" class="0">
 <segment>
 <pinref part="J1" gate="G$1" pin="40"/>
 <wire x1="76.2" y1="66.04" x2="88.9" y2="66.04" width="0.1524" layer="91"/>
@@ -3825,6 +3861,13 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <pinref part="S2" gate="G$1" pin="2"/>
 <pinref part="C2" gate="G$1" pin="2"/>
 <wire x1="190.5" y1="60.96" x2="190.5" y2="53.34" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="SW_SSEL" class="0">
+<segment>
+<pinref part="RFID" gate="G$1" pin="3"/>
+<wire x1="17.78" y1="99.06" x2="20.32" y2="99.06" width="0.1524" layer="91"/>
+<label x="20.32" y="99.06" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
