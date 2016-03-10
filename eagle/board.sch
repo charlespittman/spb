@@ -3432,14 +3432,14 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <label x="76.2" y="73.66" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="GPIO14/TXD0" class="0">
+<net name="TXD0" class="0">
 <segment>
 <pinref part="J1" gate="G$1" pin="8"/>
 <wire x1="76.2" y1="106.68" x2="88.9" y2="106.68" width="0.1524" layer="91"/>
 <label x="76.2" y="106.68" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="GPIO15/RXD0" class="0">
+<net name="RXD0" class="0">
 <segment>
 <pinref part="J1" gate="G$1" pin="10"/>
 <wire x1="76.2" y1="104.14" x2="88.9" y2="104.14" width="0.1524" layer="91"/>
@@ -3474,21 +3474,21 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <label x="76.2" y="88.9" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="GPIO8/CE0" class="0">
+<net name="GPIO8" class="0">
 <segment>
 <pinref part="J1" gate="G$1" pin="24"/>
 <wire x1="76.2" y1="86.36" x2="88.9" y2="86.36" width="0.1524" layer="91"/>
 <label x="76.2" y="86.36" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="GPIO7/CE1" class="0">
+<net name="GPIO7" class="0">
 <segment>
 <pinref part="J1" gate="G$1" pin="26"/>
 <wire x1="76.2" y1="83.82" x2="88.9" y2="83.82" width="0.1524" layer="91"/>
 <label x="76.2" y="83.82" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="GPIO1/ID_SC" class="0">
+<net name="GPIO1" class="0">
 <segment>
 <pinref part="J1" gate="G$1" pin="28"/>
 <wire x1="76.2" y1="81.28" x2="88.9" y2="81.28" width="0.1524" layer="91"/>
@@ -3502,21 +3502,21 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <label x="76.2" y="76.2" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="GPIO16/CE2" class="0">
+<net name="GPIO16" class="0">
 <segment>
 <pinref part="J1" gate="G$1" pin="36"/>
 <wire x1="76.2" y1="71.12" x2="88.9" y2="71.12" width="0.1524" layer="91"/>
 <label x="76.2" y="71.12" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="GPIO20/MOSI" class="0">
+<net name="GPIO20" class="0">
 <segment>
 <pinref part="J1" gate="G$1" pin="38"/>
 <wire x1="76.2" y1="68.58" x2="88.9" y2="68.58" width="0.1524" layer="91"/>
 <label x="76.2" y="68.58" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="GPIO21/SCLK" class="0">
+<net name="GPIO21" class="0">
 <segment>
 <pinref part="J1" gate="G$1" pin="40"/>
 <wire x1="76.2" y1="66.04" x2="88.9" y2="66.04" width="0.1524" layer="91"/>
@@ -3530,14 +3530,14 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <label x="45.72" y="93.98" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="GPIO2/SDA1" class="0">
+<net name="GPIO2" class="0">
 <segment>
 <pinref part="J1" gate="G$1" pin="3"/>
 <wire x1="60.96" y1="111.76" x2="45.72" y2="111.76" width="0.1524" layer="91"/>
 <label x="45.72" y="111.76" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="GPIO3/SCL1" class="0">
+<net name="GPIO3" class="0">
 <segment>
 <pinref part="J1" gate="G$1" pin="5"/>
 <wire x1="60.96" y1="109.22" x2="45.72" y2="109.22" width="0.1524" layer="91"/>
@@ -3572,14 +3572,14 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <label x="45.72" y="96.52" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="GPIO9/MISO" class="0">
+<net name="GPIO09" class="0">
 <segment>
 <pinref part="J1" gate="G$1" pin="21"/>
 <wire x1="60.96" y1="88.9" x2="45.72" y2="88.9" width="0.1524" layer="91"/>
 <label x="45.72" y="88.9" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="GPIO11/SCLK" class="0">
+<net name="GPIO11" class="0">
 <segment>
 <pinref part="J1" gate="G$1" pin="23"/>
 <wire x1="60.96" y1="86.36" x2="45.72" y2="86.36" width="0.1524" layer="91"/>
@@ -3607,7 +3607,7 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <label x="45.72" y="73.66" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="GPIO19/MISO" class="0">
+<net name="GPIO19" class="0">
 <segment>
 <pinref part="J1" gate="G$1" pin="35"/>
 <wire x1="60.96" y1="71.12" x2="45.72" y2="71.12" width="0.1524" layer="91"/>
@@ -3621,13 +3621,13 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <label x="45.72" y="68.58" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="GPIO0/ID_SD" class="0">
+<net name="GPIO0" class="0">
 <segment>
 <wire x1="60.96" y1="81.28" x2="45.72" y2="81.28" width="0.1524" layer="91"/>
 <label x="45.72" y="81.28" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="GPIO10/MOSI" class="0">
+<net name="GPIO10" class="0">
 <segment>
 <pinref part="J1" gate="G$1" pin="19"/>
 <wire x1="60.96" y1="91.44" x2="45.72" y2="91.44" width="0.1524" layer="91"/>
