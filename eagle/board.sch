@@ -3452,12 +3452,22 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <wire x1="76.2" y1="101.6" x2="88.9" y2="101.6" width="0.1524" layer="91"/>
 <label x="76.2" y="101.6" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="RFID" gate="G$1" pin="3"/>
+<wire x1="17.78" y1="99.06" x2="20.32" y2="99.06" width="0.1524" layer="91"/>
+<label x="20.32" y="99.06" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="GPIO23" class="0">
 <segment>
 <pinref part="J1" gate="G$1" pin="16"/>
 <wire x1="76.2" y1="96.52" x2="88.9" y2="96.52" width="0.1524" layer="91"/>
 <label x="76.2" y="96.52" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="RFID" gate="G$1" pin="4"/>
+<wire x1="17.78" y1="101.6" x2="20.32" y2="101.6" width="0.1524" layer="91"/>
+<label x="20.32" y="101.6" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="GPIO24" class="0">
@@ -3466,12 +3476,22 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <wire x1="76.2" y1="93.98" x2="88.9" y2="93.98" width="0.1524" layer="91"/>
 <label x="76.2" y="93.98" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="RFID" gate="G$1" pin="5"/>
+<wire x1="17.78" y1="104.14" x2="20.32" y2="104.14" width="0.1524" layer="91"/>
+<label x="20.32" y="104.14" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="GPIO25" class="0">
 <segment>
 <pinref part="J1" gate="G$1" pin="22"/>
 <wire x1="76.2" y1="88.9" x2="88.9" y2="88.9" width="0.1524" layer="91"/>
 <label x="76.2" y="88.9" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="RFID" gate="G$1" pin="6"/>
+<wire x1="17.78" y1="106.68" x2="20.32" y2="106.68" width="0.1524" layer="91"/>
+<label x="20.32" y="106.68" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="GPIO8" class="0">
@@ -3725,6 +3745,11 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <wire x1="17.78" y1="129.54" x2="20.32" y2="129.54" width="0.1524" layer="91"/>
 <label x="20.32" y="129.54" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="RFID" gate="G$1" pin="2"/>
+<wire x1="17.78" y1="96.52" x2="20.32" y2="96.52" width="0.1524" layer="91"/>
+<label x="20.32" y="96.52" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="VCC" class="0">
 <segment>
@@ -3732,43 +3757,6 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <wire x1="17.78" y1="121.92" x2="20.32" y2="121.92" width="0.1524" layer="91"/>
 <label x="20.32" y="121.92" size="1.778" layer="95"/>
 </segment>
-</net>
-<net name="N$7" class="0">
-<segment>
-<pinref part="RFID" gate="G$1" pin="6"/>
-<wire x1="17.78" y1="106.68" x2="20.32" y2="106.68" width="0.1524" layer="91"/>
-<label x="20.32" y="106.68" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="N$8" class="0">
-<segment>
-<pinref part="RFID" gate="G$1" pin="5"/>
-<wire x1="17.78" y1="104.14" x2="20.32" y2="104.14" width="0.1524" layer="91"/>
-<label x="20.32" y="104.14" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="N$9" class="0">
-<segment>
-<pinref part="RFID" gate="G$1" pin="4"/>
-<wire x1="17.78" y1="101.6" x2="20.32" y2="101.6" width="0.1524" layer="91"/>
-<label x="20.32" y="101.6" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="N$10" class="0">
-<segment>
-<pinref part="RFID" gate="G$1" pin="3"/>
-<wire x1="17.78" y1="99.06" x2="20.32" y2="99.06" width="0.1524" layer="91"/>
-<label x="20.32" y="99.06" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="N$11" class="0">
-<segment>
-<pinref part="RFID" gate="G$1" pin="2"/>
-<wire x1="17.78" y1="96.52" x2="20.32" y2="96.52" width="0.1524" layer="91"/>
-<label x="20.32" y="96.52" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="N$12" class="0">
 <segment>
 <pinref part="RFID" gate="G$1" pin="1"/>
 <wire x1="17.78" y1="93.98" x2="20.32" y2="93.98" width="0.1524" layer="91"/>
