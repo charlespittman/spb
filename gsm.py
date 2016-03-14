@@ -76,7 +76,7 @@ class GSM(object):
 
 
 def main():
-    gsm = GSM("/dev/ttyUSB0")
+    gsm = GSM("/dev/ttyUSB0", timeout=5)
     gsm.begin()
 
     # Spam Charles with a text
