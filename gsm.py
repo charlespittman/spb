@@ -36,6 +36,24 @@ class GSM(object):
     def _readline(self):
         return self._port.readline().strip()
 
+    def _get_reply(self, msg):
+
+        self._port.write(msg)
+        cmd = self._readline()  # Chomp cmd echo
+        reply = self._readline()
+        empty = self._readline()  # Chomp empty line
+        ok = self._readline()  # Chomp OK
+
+        # print("cmd", cmd)
+        # print("empty", empty)
+        # print("reply", reply)
+        # print("ok", ok)
+
+        return reply
+
+    def check_text(self):
+        return self._get_reply("at+cmgf?\n")
+
     def send_sms(self, phone_number, message):
         """Sends MESSAGE to PHONE_NUMBER using gsm module at PORT
 
