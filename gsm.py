@@ -39,24 +39,48 @@ class GSM(object):
     def _readline(self):
         return self._port.readline().strip()
 
-    def _get_reply(self, msg):
+    def _get_value(self, msg):
+        """Returns the value of a variable in the GSM module.
 
+        The module expects a newline to terminate a command.  We just naively
+        add one for now.
+
+        """
         self._port.write(msg)
+        self._port.write("\n")
         cmd = self._readline()  # Chomp cmd echo
-        reply = self._readline()
+        value = self._readline()
         empty = self._readline()  # Chomp empty line
         ok = self._readline()  # Chomp OK
 
         if DEBUG:
             print("cmd", cmd)
             print("empty", empty)
-            print("reply", reply)
+            print("value", value)
             print("ok", ok)
+
+        return value
+
+    def set_value(self, msg):
+        """Sets a value in the GSM module.
+
+        The module expects a newline to terminate a command.  We just naively
+        add one for now.
+
+        """
+        self._port.write(msg)
+        self._port.write("\n")
+        cmd = self._readline()  # Chomp cmd echo
+        reply = self._readline()  # Chomp ok
+
+        if DEBUG:
+            print("cmd", cmd)
+            print("reply", reply)
 
         return reply
 
     def check_text(self):
-        return self._get_reply("at+cmgf?\n")
+        return self._get_value("at+cmgf?\n")
 
     def send_sms(self, phone_number, message):
         """Sends MESSAGE to PHONE_NUMBER using gsm module at PORT
@@ -84,7 +108,8 @@ def main():
 
     # Spam Charles with a text
     # gsm.send_sms(18433033157, "Hi")
-    gsm.check_text()
+    print(gsm.check_text())
+    gsm.set_value("at+cmgf=1")
 
 if __name__ == '__main__':
     main()
