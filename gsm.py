@@ -2,6 +2,8 @@
 
 import serial
 
+DEBUG = True
+
 
 class GSM(object):
     """Class to encapsulate the GSM module.
@@ -45,10 +47,11 @@ class GSM(object):
         empty = self._readline()  # Chomp empty line
         ok = self._readline()  # Chomp OK
 
-        # print("cmd", cmd)
-        # print("empty", empty)
-        # print("reply", reply)
-        # print("ok", ok)
+        if DEBUG:
+            print("cmd", cmd)
+            print("empty", empty)
+            print("reply", reply)
+            print("ok", ok)
 
         return reply
 
