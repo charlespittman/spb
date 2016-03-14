@@ -2,6 +2,8 @@
 
 import serial
 
+DEBUG = True
+
 
 class GSM(object):
     """Class to encapsulate the GSM module.
@@ -12,7 +14,7 @@ class GSM(object):
     """
 
     def __init__(self, serial_port="/dev/ttyAMA0",
-                 baudrate=9600, timeout=30):
+                 baudrate=9600, timeout=0.5):
         """Set up serial connection to GSM module."""
 
         self._serial_port = serial_port
@@ -31,10 +33,55 @@ class GSM(object):
 
         # The module sets the baudrate automatically based on the first
         # message.
-        self._port.write("AT\n")
+        self._port.write("AT\r")
+        print(self._port.readlines())
 
     def _readline(self):
+        """Get line, with beginning/ending whitespace stripped."""
         return self._port.readline().strip()
+
+    def _get_value(self, msg):
+        """Returns the value of a variable in the GSM module after issuing MSG.
+
+        The module expects a newline to terminate a command.  We just naively
+        add one for now.
+
+        """
+        self._port.write(msg)
+        self._port.write("\n")
+        cmd = self._readline()  # Chomp cmd echo
+        value = self._readline()
+        empty = self._readline()  # Chomp empty line
+        ok = self._readline()  # Chomp OK
+
+        if DEBUG:
+            print("cmd", cmd)
+            print("empty", empty)
+            print("value", value)
+            print("ok", ok)
+
+        return value
+
+    def set_value(self, msg):
+        """Sets a value in the GSM module.
+
+        The module expects a newline to terminate a command.  We just naively
+        add one for now.
+
+        """
+        self._port.write(msg)
+        self._port.write("\n")
+        cmd = self._readline()  # Chomp cmd echo
+        reply = self._readline()  # Chomp ok
+
+        if DEBUG:
+            print("cmd", cmd)
+            print("reply", reply)
+
+        return reply
+
+    def check_text(self):
+        return self._get_value("at+cmgf?\n")
 
     def send_sms(self, phone_number, message):
         """Sends MESSAGE to PHONE_NUMBER using gsm module at PORT
@@ -57,11 +104,13 @@ class GSM(object):
 
 
 def main():
-    gsm = GSM("/dev/ttyUSB0")
+    gsm = GSM("/dev/ttyUSB0", timeout=0.5)
     gsm.begin()
 
     # Spam Charles with a text
-    gsm.send_sms(18433033157, "Hi")
+    # gsm.send_sms(18433033157, "Hi")
+    print(gsm.check_text())
+    gsm.set_value("at+cmgf=1")
 
 if __name__ == '__main__':
     main()
