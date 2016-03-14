@@ -14,7 +14,7 @@ class GSM(object):
     """
 
     def __init__(self, serial_port="/dev/ttyAMA0",
-                 baudrate=9600, timeout=30):
+                 baudrate=9600, timeout=0.5):
         """Set up serial connection to GSM module."""
 
         self._serial_port = serial_port
@@ -33,8 +33,8 @@ class GSM(object):
 
         # The module sets the baudrate automatically based on the first
         # message.
-        self._port.write("AT\n")
-        self._port.readlines()
+        self._port.write("AT\r")
+        print(self._port.readlines())
 
     def _readline(self):
         return self._port.readline().strip()
@@ -103,7 +103,7 @@ class GSM(object):
 
 
 def main():
-    gsm = GSM("/dev/ttyUSB0", timeout=5)
+    gsm = GSM("/dev/ttyUSB0", timeout=0.5)
     gsm.begin()
 
     # Spam Charles with a text
