@@ -32,6 +32,7 @@ class GSM(object):
         # The module sets the baudrate automatically based on the first
         # message.
         self._port.write("AT\n")
+        self._port.readlines()
 
     def _readline(self):
         return self._port.readline().strip()
