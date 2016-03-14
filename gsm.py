@@ -37,10 +37,11 @@ class GSM(object):
         print(self._port.readlines())
 
     def _readline(self):
+        """Get line, with beginning/ending whitespace stripped."""
         return self._port.readline().strip()
 
     def _get_value(self, msg):
-        """Returns the value of a variable in the GSM module.
+        """Returns the value of a variable in the GSM module after issuing MSG.
 
         The module expects a newline to terminate a command.  We just naively
         add one for now.
