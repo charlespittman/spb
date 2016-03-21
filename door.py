@@ -42,7 +42,7 @@ class Door(object):
 
 
 def main():
-    door = Door(20, 21, 12)
+    door = Door(lock_pin=20, unlock_pin=21, switch_pin=12)
 
     print("Lock")
     door.lock()
