@@ -24,7 +24,7 @@ Locks or unlock door.
 
 
 mail_switch.py
-Return true/HIGH on PIN 32 if mail switch is triggered and calls send_mail.py
+Return "True" if mail switch is triggered.
 
 
 gsm.py
