@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 # Locks or unlocks door.
 
 import time

@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import serial
+import RPi.GPIO as GPIO
 
 DEBUG = True
 
@@ -113,4 +114,7 @@ def main():
     gsm.set_value("at+cmgf=1")
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    finally:
+        GPIO.cleanup()

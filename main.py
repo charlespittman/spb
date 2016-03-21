@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+
+import RPi.GPIO as GPIO
 import door
 
 
@@ -34,3 +37,13 @@ def cam():
 def intrusion_check():
     """Monitors the status of door while locked and calls cam() if opened"""
     pass
+
+
+def main():
+    pass
+
+if __name__ == '__main__':
+    try:
+        main()
+    finally:
+        GPIO.cleanup()
