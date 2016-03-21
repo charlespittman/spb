@@ -10,7 +10,7 @@ GPIO.setmode(GPIO.BCM)
 
 
 class Door(object):
-    """Class to encapsulate the GSM module."""
+    """Class to encapsulate the door module."""
 
     def __init__(self, lock_pin, unlock_pin, switch_pin):
         self.lock_pin = lock_pin
