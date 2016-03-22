@@ -5,10 +5,16 @@ Programs
 
 main.py
 
+Initialize global variables
 
-If lock is engaged and door is opened, pass "alert" to gsm.py
+If lock is engaged and door is opened ask gms.py to send "alert"
+and ask cam.py to take a picture 
+Check rfid.py status
 
-When Mail is triggered call cam.py and gsm.py,also check for door_lock=true, if it is then lock it; else end. The pourpose here is to lock the mailbox the first time mail is present.
+If Mail_Switch=True ask gsm.py to send "you have mail". Check for door_closed=True, if it is True then lock it; if not continue monitor until door_closed=True.
+Check rfid.py status
+
+END
 
 
 cam.py
@@ -20,7 +26,7 @@ Checks the status of the door pin and returns "True" if open or "False" if close
 
 
 door.py
-Locks or unlock door.
+Locks or unlock door. 
 
 
 mail_switch.py
@@ -31,6 +37,10 @@ gsm.py
 Monitors RFID for correct card and returns true when found.
 When mail switch is triggered "You have mail"
 When intrusion is triggered "You mail has been broken into"
+
+
+rfid.py
+Monitors for correct card to be used. When correct card detected ask gsm.py open door.
 
 
 ====================
