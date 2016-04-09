@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 # Takes several pictures.
 # Requires picamera (python-picamera)
 

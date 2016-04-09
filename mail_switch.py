@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 # This subroutine will poll pin 36 to determine if is was pressed
 
 import time
