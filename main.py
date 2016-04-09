@@ -25,14 +25,9 @@ def mail_switch():
     pass
 
 
-def send_alert():
-    """Sends a text message from send_alert.py that you mail has been been broken into."""
-    pass
-
-
-def send_mail():
-    """Sends a text message send_mail.py that you have mail."""
-    pass
+def send_msg(phone_number, message):
+    """Sends MESSAGE to PHONE_NUMBER."""
+    gsm.send_sms(phone_number, message)
 
 
 def cam():
