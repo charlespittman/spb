@@ -36,11 +36,11 @@ class Door(object):
 
     def is_closed(self):
         """Return True if door is closed."""
-        return GPIO.input(self.door_switch) == GPIO.LOW
+        return GPIO.input(self.switch_pin) == GPIO.LOW
 
     def is_open(self):
         """Return True if door is open."""
-        return GPIO.input(self.door_switch) == GPIO.HIGH
+        return GPIO.input(self.switch_pin) == GPIO.HIGH
 
 
 def main():
