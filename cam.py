@@ -4,19 +4,26 @@
 import time
 import picamera
 
-with picamera.PiCamera() as camera:
-    camera.resolution = (1280, 720)
-    camera.framerate = 30
 
-    # Wait for the automatic gain control to settle
-    time.sleep(1)
+def main():
+    with picamera.PiCamera() as camera:
+        camera.resolution = (1024, 768)
 
-    # Now fix the values
-    camera.shutter_speed = camera.exposure_speed
-    camera.exposure_mode = 'off'
-    g = camera.awb_gains
-    camera.awb_mode = 'off'
-    camera.awb_gains = g
+        # Wait for the automatic gain control to settle
+        time.sleep(1)
 
-    # Finally, take several photos with the fixed settings
-    camera.capture_sequence(['image%02d.jpg' % i for i in range(10)])
+        # Set values so that set of pictures have the same brightness, color,
+        # and contrast.
+        camera.shutter_speed = camera.exposure_speed
+        camera.exposure_mode = 'off'
+        g = camera.awb_gains
+        camera.awb_mode = 'off'
+        camera.awb_gains = g
+
+        # Take 5 shots, saving file in current directory with timestamp.
+        camera.capture_sequence(
+            ['{}_{:02d}.jpg'.format(time.strftime('%Y.%m.%d-%H:%M:%S'), i)
+             for i in range(5)])
+
+if __name__ == '__main__':
+    main()
