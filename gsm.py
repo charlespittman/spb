@@ -85,7 +85,7 @@ class GSM(object):
         return self._get_value("at+cmgf?\n")
 
     def send_sms(self, phone_number, message):
-        """Sends MESSAGE to PHONE_NUMBER using gsm module at PORT
+        """Sends MESSAGE to PHONE_NUMBER using gsm module.
 
         PHONE_NUMBER has no special formatting (10 digits).
         """
