@@ -11,6 +11,7 @@ def initialize():
     """Set up the objects we'll be using later."""
 
     door = Door(lock_pin=20, unlock_pin=21, switch_pin=12)
+    door.lock()
 
     gsm = GSM("/dev/ttyUSB0", timeout=0.5)
     gsm.begin()
