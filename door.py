@@ -25,13 +25,13 @@ class Door(object):
     def lock(self):
         """Locks door on Relay K2"""
         GPIO.output(self.lock_pin, GPIO.LOW)
-        time.sleep(1)
+        time.sleep(0.1)
         GPIO.output(self.lock_pin, GPIO.HIGH)
 
     def unlock(self):
         """Unlocks door on Relay K1."""
         GPIO.output(self.unlock_pin, GPIO.LOW)
-        time.sleep(1)
+        time.sleep(0.1)
         GPIO.output(self.unlock_pin, GPIO.HIGH)
 
     def is_closed(self):
