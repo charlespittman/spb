@@ -2,16 +2,16 @@
 
 import Adafruit_PN532 as PN532
 import RPi.GPIO as GPIO
-import door.Door as Door
-import gsm.GSM as GSM
+import door
+import gsm
 import serial
 
 
 # Set up the objects we'll be using later.
-door = Door(lock_pin=20, unlock_pin=21, switch_pin=12)
+door = door.Door(lock_pin=20, unlock_pin=21, switch_pin=12)
 door.lock()
 
-gsm = GSM("/dev/ttyUSB0", timeout=0.5)
+gsm = gsm.GSM("/dev/ttyUSB0", timeout=0.5)
 gsm.begin()
 
 rfid = PN532.PN532(cs=18, sclk=25, mosi=23, miso=24)
