@@ -52,15 +52,22 @@ def main():
 
     print("Lock")
     door.lock()
+    print('Door is {}.'.format('Locked' if door.locked else 'Unlocked'))
     time.sleep(2)
+
     print("Unlock")
     door.unlock()
+    print('Door is {}.'.format('Locked' if door.locked else 'Unlocked'))
     time.sleep(2)
+
     print("Lock")
     door.lock()
+    print('Door is {}.'.format('Locked' if door.locked else 'Unlocked'))
     time.sleep(2)
+
     print("Unlock")
     door.unlock()
+    print('Door is {}.'.format('Locked' if door.locked else 'Unlocked'))
     time.sleep(2)
 
 
