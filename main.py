@@ -8,7 +8,7 @@ import serial
 
 
 # Set up the objects we'll be using later.
-door = spb_door.Door(lock_pin=20, unlock_pin=21, switch_pin=12)
+door = spb_door.Door(lock_pin=20, unlock_pin=21, switch_pin=12, mail_pin=16)
 door.lock()
 
 gsm = spb_gsm.GSM("/dev/ttyAMA0", timeout=0.5)
@@ -47,8 +47,8 @@ def intrusion_check():
 
 
 def main():
-    GPIO.add_event_detect(door.switch_pin, GPIO.FALLING)
-    GPIO.add_event_callback(door.switch_pin, alert_mail)
+    GPIO.add_event_detect(door.mail_pin, GPIO.FALLING)
+    GPIO.add_event_callback(door.mail_pin, alert_mail)
     while True:
         pass
 

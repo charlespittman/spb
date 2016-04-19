@@ -12,7 +12,7 @@ GPIO.setmode(GPIO.BCM)
 class Door(object):
     """Class to encapsulate the door module."""
 
-    def __init__(self, lock_pin, unlock_pin, switch_pin):
+    def __init__(self, lock_pin, unlock_pin, switch_pin, mail_pin):
         self.locked = False
 
         self.lock_pin = lock_pin
@@ -23,6 +23,9 @@ class Door(object):
 
         self.switch_pin = switch_pin
         GPIO.setup(self.switch_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
+        self.mail_pin = mail_pin
+        GPIO.setup(self.mail_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
     def lock(self):
         """Locks door on Relay K2"""
@@ -48,7 +51,7 @@ class Door(object):
 
 
 def main():
-    door = Door(lock_pin=20, unlock_pin=21, switch_pin=12)
+    door = Door(lock_pin=20, unlock_pin=21, switch_pin=12, mail_switch=16)
 
     print("Lock")
     door.lock()
