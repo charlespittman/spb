@@ -18,6 +18,13 @@ rfid = PN532.PN532(cs=18, sclk=25, mosi=23, miso=24)
 rfid.begin()
 rfid.SAM_configuration()
 
+PHONE = 14047961224
+
+
+def alert_mail():
+    """Sends text to say mail has arrived."""
+    send_msg(PHONE, "You have mail")
+
 
 def mail_switch():
     """Use mail_switch.py to check for mail, If present if will call send_mail.py."""
@@ -40,7 +47,10 @@ def intrusion_check():
 
 
 def main():
-    pass
+    GPIO.add_event_detect(door.switch_pin, GPIO.FALLING)
+    GPIO.add_event_callback(door.switch_pin, alert_mail)
+    while True:
+        pass
 
 
 if __name__ == '__main__':
