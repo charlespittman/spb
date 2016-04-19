@@ -5,7 +5,9 @@ import RPi.GPIO as GPIO
 import spb_door
 import spb_gsm
 import serial
+import time
 
+DEBUG = True
 
 # Set up the objects we'll be using later.
 door = spb_door.Door(lock_pin=20, unlock_pin=21, switch_pin=12, mail_pin=16)
@@ -21,9 +23,12 @@ rfid.SAM_configuration()
 PHONE = 14047961224
 
 
-def alert_mail():
+def alert_mail(door.mail_pin):
     """Sends text to say mail has arrived."""
-    send_msg(PHONE, "You have mail")
+    if DEBUG:
+        print("ALERT: Mail")
+    else:
+        send_msg(PHONE, "You have mail")
 
 
 def mail_switch():
@@ -47,10 +52,12 @@ def intrusion_check():
 
 
 def main():
-    GPIO.add_event_detect(door.mail_pin, GPIO.FALLING)
-    GPIO.add_event_callback(door.mail_pin, alert_mail)
+    GPIO.add_event_detect(door.mail_pin, GPIO.FALLING,
+                          callback=alert_mail, bouncetime=1000)
+
     while True:
-        pass
+        print("Loop")
+        time.sleep(1)
 
 
 if __name__ == '__main__':
