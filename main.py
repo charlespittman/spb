@@ -68,7 +68,7 @@ def main():
     GPIO.add_event_detect(door.mail_pin, GPIO.FALLING,
                           callback=alert_mail_cb, bouncetime=1000)
 
-    GPIO.add_event_detect(door.switch_pin, GPIO.BOTH,
+    GPIO.add_event_detect(door.switch_pin, GPIO.FALLING,
                           callback=door_switch_cb, bouncetime=1000)
 
     while True:
