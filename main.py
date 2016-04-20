@@ -72,14 +72,19 @@ def main():
     lock_switch = 17
     GPIO.setup(lock_switch, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
+    # Button to lock/unlock
     GPIO.add_event_detect(lock_switch, GPIO.FALLING,
                           callback=lock_switch_cb, bouncetime=1000)
 
+    # Detect mail
     GPIO.add_event_detect(door.mail_pin, GPIO.FALLING,
                           callback=mail_switch_cb, bouncetime=1000)
 
+    # Detect door opening
     GPIO.add_event_detect(door.switch_pin, GPIO.FALLING,
                           callback=door_switch_open_cb, bouncetime=1000)
+
+    # Detect door closing
     GPIO.add_event_detect(door.switch_pin, GPIO.RISING,
                           callback=door_switch_close_cb, bouncetime=1000)
 
