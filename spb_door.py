@@ -14,6 +14,7 @@ class Door(object):
 
     def __init__(self, lock_pin, unlock_pin, switch_pin, mail_pin):
         self.locked = False
+        self.unlocked = True
 
         self.lock_pin = lock_pin
         GPIO.setup(self.lock_pin, GPIO.OUT, initial=GPIO.HIGH)
@@ -33,6 +34,7 @@ class Door(object):
         time.sleep(0.1)
         GPIO.output(self.lock_pin, GPIO.HIGH)
         self.locked = True
+        self.unlocked = False
 
     def unlock(self):
         """Unlocks door on Relay K1."""
@@ -40,6 +42,7 @@ class Door(object):
         time.sleep(0.1)
         GPIO.output(self.unlock_pin, GPIO.HIGH)
         self.locked = False
+        self.unlocked = True
 
     def is_closed(self):
         """Return True if door is closed."""
