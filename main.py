@@ -40,6 +40,13 @@ def door_switch_cb(door_switch):
             print("INFO: Door opened while unlocked.")
 
 
+def lock_switch_cb(lock_switch):
+    if door.locked:
+        door.unlock()
+    if door.unlocked:
+        door.lock()
+
+
 def send_msg(phone_number, message):
     """Sends MESSAGE to PHONE_NUMBER."""
     gsm.send_sms(phone_number, message)
@@ -52,6 +59,12 @@ def intrusion_check():
 
 
 def main():
+    lock_switch = 17
+    GPIO.setup(lock_switch, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
+    GPIO.add_event_detect(lock_switch, GPIO.FALLING,
+                          callback=lock_switch_cb, bouncetime=1000)
+
     GPIO.add_event_detect(door.mail_pin, GPIO.FALLING,
                           callback=alert_mail_cb, bouncetime=1000)
 
