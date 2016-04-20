@@ -24,7 +24,7 @@ PHONE = 14047961224
 
 
 def mail_switch_cb(mail_switch):
-    """Callback function when the mail switch triggers."""
+    """Sends alert when mail is detected."""
     if DEBUG:
         print("ALERT: Mail")
     else:
@@ -32,7 +32,7 @@ def mail_switch_cb(mail_switch):
 
 
 def door_switch_open_cb(door_switch):
-    """Callback function when the door is opened."""
+    """Sends alert and take pictures if the door is broken into."""
     if door.locked:
         if DEBUG:
             print("ALERT: Door opened while locked.")
@@ -53,7 +53,7 @@ def door_switch_close_cb(door_switch):
 
 
 def lock_switch_cb(lock_switch):
-    """Callback function when the lock button is pressed."""
+    """Toggles the lock."""
     if door.locked:
         door.unlock()
         if DEBUG:
