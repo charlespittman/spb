@@ -5,7 +5,6 @@ import RPi.GPIO as GPIO
 import spb_cam
 import spb_door
 import spb_gsm
-import serial
 import time
 
 DEBUG = True
@@ -50,12 +49,6 @@ def lock_switch_cb(lock_switch):
 def send_msg(phone_number, message):
     """Sends MESSAGE to PHONE_NUMBER."""
     gsm.send_sms(phone_number, message)
-
-
-
-def intrusion_check():
-    """Monitors the status of door while locked and calls cam() if opened"""
-    pass
 
 
 def main():
