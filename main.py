@@ -36,7 +36,7 @@ def door_switch_cb(door_switch):
     if DEBUG:
         if door.locked:
             print("ALERT: Door opened while locked.")
-        if door.unlocked:
+        else:
             print("INFO: Door opened while unlocked.")
 
 
