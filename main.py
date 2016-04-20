@@ -34,12 +34,14 @@ def mail_switch_cb(mail_switch):
 def door_switch_cb(door_switch):
     if DEBUG:
         if door.locked:
+    """Callback function when the door is opened."""
             print("ALERT: Door opened while locked.")
         if door.unlocked:
             print("INFO: Door opened while unlocked.")
 
 
 def lock_switch_cb(lock_switch):
+    """Callback function when the lock button is pressed."""
     if door.locked:
         door.unlock()
     else:
