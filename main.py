@@ -57,12 +57,8 @@ def lock_switch_cb(lock_switch):
     """Toggles the lock."""
     if door.locked:
         door.unlock()
-        if DEBUG:
-            print("INFO: Door unlocked.")
     else:
         door.lock()
-        if DEBUG:
-            print("INFO: Door locked.")
 
 
 def send_msg(phone_number, message):

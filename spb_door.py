@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
-# Locks or unlocks door.
-
 import time
 import RPi.GPIO as GPIO
+
+DEBUG = False
 
 # Set pin numbering to Broadcom type
 GPIO.setmode(GPIO.BCM)
@@ -30,6 +30,8 @@ class Door(object):
 
     def lock(self):
         """Locks door on Relay K2"""
+        if DEBUG:
+            print("INFO: Locking door.")
         GPIO.output(self.lock_pin, GPIO.LOW)
         time.sleep(0.1)
         GPIO.output(self.lock_pin, GPIO.HIGH)
@@ -38,6 +40,8 @@ class Door(object):
 
     def unlock(self):
         """Unlocks door on Relay K1."""
+        if DEBUG:
+            print("INFO: Unlocking door.")
         GPIO.output(self.unlock_pin, GPIO.LOW)
         time.sleep(0.1)
         GPIO.output(self.unlock_pin, GPIO.HIGH)
