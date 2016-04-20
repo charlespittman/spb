@@ -3,8 +3,6 @@
 import serial
 import RPi.GPIO as GPIO
 
-DEBUG = True
-
 
 class GSM(object):
     """Class to encapsulate the GSM module.
@@ -115,6 +113,7 @@ def main():
 
 if __name__ == '__main__':
     try:
+        DEBUG = True
         main()
     finally:
         GPIO.cleanup()
