@@ -2,6 +2,7 @@
 
 import Adafruit_PN532 as PN532
 import RPi.GPIO as GPIO
+import binascii
 import spb_cam
 import spb_door
 import spb_gsm
@@ -9,6 +10,7 @@ import time
 
 DEBUG = True
 PHONE = 14047961224
+RFID_CARD = '0d345b95'
 
 # Set up the objects we'll be using later.
 door = spb_door.Door(lock_pin=20, unlock_pin=21, switch_pin=12, mail_pin=16)
@@ -88,9 +90,23 @@ def main():
     GPIO.add_event_detect(door.switch_pin, GPIO.RISING,
                           callback=door_switch_close_cb, bouncetime=1000)
 
+    if DEBUG:
+        print("INFO: Waiting for RFID card.")
     while True:
-        print("Loop")
-        time.sleep(1)
+            uid = rfid.read_passive_target()
+
+            if uid is None:
+                continue
+
+            if binascii.hexlify(uid) == RFID_CARD:
+                if DEBUG:
+                    print("INFO: Found correct RFID card.")
+                door.unlock()
+            else:
+                if DEBUG:
+                    print("INFO: Found wrong RFID card.")
+
+            time.sleep(1)
 
 
 if __name__ == '__main__':
