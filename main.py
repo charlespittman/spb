@@ -32,6 +32,12 @@ def alert_mail_cb(mail_switch):
         send_msg(PHONE, "You have mail")
 
 
+def door_switch_cb(door_switch):
+    if DEBUG:
+        if door.locked:
+            print("ALERT: Door opened while locked.")
+        if door.unlocked:
+            print("INFO: Door opened while unlocked.")
 
 
 def send_msg(phone_number, message):
@@ -48,6 +54,9 @@ def intrusion_check():
 def main():
     GPIO.add_event_detect(door.mail_pin, GPIO.FALLING,
                           callback=alert_mail_cb, bouncetime=1000)
+
+    GPIO.add_event_detect(door.switch_pin, GPIO.BOTH,
+                          callback=door_switch_cb, bouncetime=1000)
 
     while True:
         print("Loop")
