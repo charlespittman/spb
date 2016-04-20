@@ -44,8 +44,12 @@ def lock_switch_cb(lock_switch):
     """Callback function when the lock button is pressed."""
     if door.locked:
         door.unlock()
+        if DEBUG:
+            print("INFO: Door unlocked.")
     else:
         door.lock()
+        if DEBUG:
+            print("INFO: Door locked.")
 
 
 def send_msg(phone_number, message):
