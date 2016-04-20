@@ -23,8 +23,8 @@ rfid.SAM_configuration()
 PHONE = 14047961224
 
 
-def alert_mail_cb(mail_switch):
-    """Callback function when the mail switch triggers.."""
+def mail_switch_cb(mail_switch):
+    """Callback function when the mail switch triggers."""
     if DEBUG:
         print("ALERT: Mail")
     else:
@@ -59,7 +59,7 @@ def main():
                           callback=lock_switch_cb, bouncetime=1000)
 
     GPIO.add_event_detect(door.mail_pin, GPIO.FALLING,
-                          callback=alert_mail_cb, bouncetime=1000)
+                          callback=mail_switch_cb, bouncetime=1000)
 
     GPIO.add_event_detect(door.switch_pin, GPIO.FALLING,
                           callback=door_switch_cb, bouncetime=1000)
