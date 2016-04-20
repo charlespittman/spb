@@ -31,7 +31,7 @@ def mail_switch_cb(mail_switch):
         send_msg(PHONE, "You have mail")
 
 
-def door_switch_cb(door_switch):
+def door_switch_open_cb(door_switch):
     """Callback function when the door is opened."""
     if door.locked:
         if DEBUG:
@@ -43,6 +43,13 @@ def door_switch_cb(door_switch):
     if door.unlocked:
         if DEBUG:
             print("INFO: Door opened while unlocked.")
+
+
+def door_switch_close_cb(door_switch):
+    """Locks the door after it closes."""
+    if DEBUG:
+        print("INFO: Door closed. Locking up.")
+    door.lock()
 
 
 def lock_switch_cb(lock_switch):
@@ -73,7 +80,9 @@ def main():
                           callback=mail_switch_cb, bouncetime=1000)
 
     GPIO.add_event_detect(door.switch_pin, GPIO.FALLING,
-                          callback=door_switch_cb, bouncetime=1000)
+                          callback=door_switch_open_cb, bouncetime=1000)
+    GPIO.add_event_detect(door.switch_pin, GPIO.RISING,
+                          callback=door_switch_close_cb, bouncetime=1000)
 
     while True:
         print("Loop")
