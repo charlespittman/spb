@@ -51,7 +51,7 @@ class Door(object):
 
 
 def main():
-    door = Door(lock_pin=20, unlock_pin=21, switch_pin=12, mail_switch=16)
+    door = Door(lock_pin=20, unlock_pin=21, switch_pin=12, mail_pin=16)
 
     print("Lock")
     door.lock()
