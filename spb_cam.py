@@ -6,8 +6,7 @@
 import time
 import picamera
 
-
-def main():
+def take_sequence():
     with picamera.PiCamera() as camera:
         camera.resolution = (1024, 768)
 
@@ -26,6 +25,10 @@ def main():
         camera.capture_sequence(
             ['{}_{:02d}.jpg'.format(time.strftime('%Y.%m.%d-%H:%M:%S'), i)
              for i in range(5)])
+
+
+def main():
+    take_sequence()
 
 if __name__ == '__main__':
     main()
