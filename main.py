@@ -32,11 +32,16 @@ def mail_switch_cb(mail_switch):
 
 
 def door_switch_cb(door_switch):
-    if DEBUG:
-        if door.locked:
     """Callback function when the door is opened."""
+    if door.locked:
+        if DEBUG:
             print("ALERT: Door opened while locked.")
-        if door.unlocked:
+        else:
+            spb_cam.take_sequence()
+            send_msg(PHONE, "Unauthorized entry.")
+
+    if door.unlocked:
+        if DEBUG:
             print("INFO: Door opened while unlocked.")
 
 
