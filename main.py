@@ -32,25 +32,24 @@ def mail_switch_cb(mail_switch):
         send_msg(PHONE, "You have mail")
 
 
-def door_switch_open_cb(door_switch):
+def door_switch_cb(door_switch):
     """Sends alert and take pictures if the door is broken into."""
-    if door.locked:
+    if door.is_open():
+        if door.locked:
+            if DEBUG:
+                print("ALERT: Door opened while locked.")
+            else:
+                spb_cam.take_sequence()
+                send_msg(PHONE, "Unauthorized entry.")
+
+        if door.unlocked:
+            if DEBUG:
+                print("INFO: Door opened while unlocked.")
+
+    if door.is_closed():
         if DEBUG:
-            print("ALERT: Door opened while locked.")
-        else:
-            spb_cam.take_sequence()
-            send_msg(PHONE, "Unauthorized entry.")
-
-    if door.unlocked:
-        if DEBUG:
-            print("INFO: Door opened while unlocked.")
-
-
-def door_switch_close_cb(door_switch):
-    """Locks the door after it closes."""
-    if DEBUG:
-        print("INFO: Door closed. Locking up.")
-    door.lock()
+            print("INFO: Door closed. Locking up.")
+        door.lock()
 
 
 def lock_switch_cb(lock_switch):
@@ -78,13 +77,9 @@ def main():
     GPIO.add_event_detect(door.mail_pin, GPIO.FALLING,
                           callback=mail_switch_cb, bouncetime=1000)
 
-    # Detect door opening
-    GPIO.add_event_detect(door.switch_pin, GPIO.FALLING,
-                          callback=door_switch_open_cb, bouncetime=1000)
-
-    # Detect door closing
-    GPIO.add_event_detect(door.switch_pin, GPIO.RISING,
-                          callback=door_switch_close_cb, bouncetime=1000)
+    # Detect door open/close
+    GPIO.add_event_detect(door.switch_pin, GPIO.BOTH,
+                          callback=door_switch_cb, bouncetime=1000)
 
     if DEBUG:
         print("INFO: Waiting for RFID card.")
