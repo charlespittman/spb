@@ -49,6 +49,7 @@ def door_switch_cb(door_switch):
     if door.is_closed():
         if DEBUG:
             print("INFO: Door closed. Locking up.")
+        time.sleep(0.5)  # Give the door a chance to finish closing
         door.lock()
 
 
