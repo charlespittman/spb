@@ -26,7 +26,7 @@ class Door(object):
         GPIO.setup(self.switch_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
         self.mail_pin = mail_pin
-        GPIO.setup(self.mail_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+        GPIO.setup(self.mail_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
     def lock(self):
         """Locks door on Relay K2"""
