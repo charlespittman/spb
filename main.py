@@ -74,8 +74,11 @@ def main():
     GPIO.add_event_detect(lock_switch, GPIO.FALLING,
                           callback=lock_switch_cb, bouncetime=1000)
 
+    on_off_switch = 19
+    GPIO.setup(on_off_switch, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
     # Detect mail
-    GPIO.add_event_detect(door.mail_pin, GPIO.FALLING,
+    GPIO.add_event_detect(door.mail_pin, GPIO.RISING,
                           callback=mail_switch_cb, bouncetime=1000)
 
     # Detect door open/close
