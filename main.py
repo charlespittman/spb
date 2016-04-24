@@ -13,7 +13,7 @@ PHONE = 14047961224
 RFID_CARD = '0d345b95'
 
 # Set up the objects we'll be using later.
-door = spb_door.Door(lock_pin=20, unlock_pin=21, switch_pin=12, mail_pin=16)
+door = spb_door.Door(lock_pin=20, unlock_pin=21, switch_pin=5, mail_pin=16)
 door.lock()
 
 gsm = spb_gsm.GSM("/dev/ttyAMA0", timeout=0.5)
