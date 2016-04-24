@@ -12,16 +12,20 @@ DEBUG = True
 PHONE = 14047961224
 RFID_CARD = '0d345b95'
 
+
 # Set up the objects we'll be using later.
-door = spb_door.Door(lock_pin=20, unlock_pin=21, switch_pin=5, mail_pin=16)
-door.lock()
+try:
+    door = spb_door.Door(lock_pin=20, unlock_pin=21, switch_pin=5, mail_pin=16)
+    door.lock()
 
-gsm = spb_gsm.GSM("/dev/ttyAMA0", timeout=0.5)
-gsm.begin()
+    gsm = spb_gsm.GSM("/dev/ttyAMA0", timeout=0.5)
+    gsm.begin()
 
-rfid = PN532.PN532(cs=18, sclk=25, mosi=23, miso=24)
-rfid.begin()
-rfid.SAM_configuration()
+    rfid = PN532.PN532(cs=18, sclk=25, mosi=23, miso=24)
+    rfid.begin()
+    rfid.SAM_configuration()
+finally:
+    GPIO.cleanup()
 
 
 def mail_switch_cb(mail_switch):
