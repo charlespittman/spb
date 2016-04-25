@@ -1,74 +1,19 @@
-====================
-Programs
-====================
-samples/gsm_test.py
-Sends SMS text
-
-
-samples/ir_test.py
-Testing IR break beam.
-
-
-samples/led.py
-Testing writing to GPIO.
-
-
-main.py
-Temporary(?) main file.  	(Partially just to point out top functions)
-
-
-cam.py
-Takes a picture,stores it on the SD card and calls send_alert.py
-
-
-door_open.py
-Checks the status of the door pin and returns True if open or False
-
-
-intrusion_check.py
-Will monitor the status of the door while locked and calls cam.py if opened.
-
-
-door.py
-Locks or unlock door.
-
-
-mail_switch.py
-Return true/HIGH on PIN 32 if mail switch is triggered and calls send_mail.py
-
-
-readmifare.py
-When run, waits for RFID card and texts before exiting program.
-
-
-send_mail.py
-Uses gsm module to send text "You have mail".
-
-
-send_alert.py
-Uses gsm module to send text "You mail has been broken into".
-
-
+SecureBox - Locking mailbox based around a Raspberry Pi.
 
 ====================
-GPIO Pins
+GPIO Pins (BCM numbers)
 ====================
-PN532:
+Door:
+lock = 20
+unlock = 21
+door switch = 5
+mail trigger= 16
+
+GSM:
+UART pins
+
+RFID:
 CS = 18
 MOSI = 23
 MISO = 24
 SCLK = 25
-
-Lock:
-OPEN/UNLOCK = 21
-CLOSE/LOCK = 20
-
-Door:
-door_switch = 12
-
-Mail:
-Trigger = 36
-YesMail = 32
-
-Misc:
-LED = 17
