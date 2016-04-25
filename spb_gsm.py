@@ -107,7 +107,7 @@ def main():
     gsm.begin()
 
     # Spam Charles with a text
-    # gsm.send_sms(18433033157, "Hi")
+    gsm.send_sms(18433033157, "Hi")
     print(gsm.check_text())
     gsm.set_value("at+cmgf=1")
 

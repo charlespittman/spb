@@ -9,7 +9,8 @@ import spb_gsm
 import time
 
 DEBUG = True
-PHONE = 14047961224
+#PHONE = 14047961224
+PHONE = 18433033157
 RFID_CARD = '0d345b95'
 
 
