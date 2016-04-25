@@ -5,8 +5,11 @@
 
 import time
 import picamera
+import sh
+
 
 def take_sequence():
+    sh.mount('/mnt/spb')
     with picamera.PiCamera() as camera:
         camera.resolution = (1024, 768)
 
@@ -23,8 +26,9 @@ def take_sequence():
 
         # Take 5 shots, saving file in current directory with timestamp.
         camera.capture_sequence(
-            ['{}_{:02d}.jpg'.format(time.strftime('%Y.%m.%d-%H:%M:%S'), i)
+            ['/mnt/spb/{}_{:02d}.jpg'.format(time.strftime('%Y.%m.%d-%H:%M:%S'), i)
              for i in range(5)])
+    sh.umount('/mnt/spb')
 
 
 def main():
