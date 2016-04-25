@@ -25,7 +25,7 @@ try:
     rfid = PN532.PN532(cs=18, sclk=25, mosi=23, miso=24)
     rfid.begin()
     rfid.SAM_configuration()
-finally:
+except:
     GPIO.cleanup()
 
 
