@@ -8,7 +8,6 @@ import spb_door
 import spb_gsm
 import time
 
-DEBUG = True
 #PHONE = 14047961224
 PHONE = 18433033157
 RFID_CARD = '0d345b95'
@@ -31,29 +30,23 @@ except:
 
 def mail_switch_cb(mail_switch):
     """Sends alert when mail is detected."""
-    if DEBUG:
-        print("ALERT: Mail")
-    else:
-        send_msg(PHONE, "You have mail")
+    print("ALERT: Mail")
+    send_msg(PHONE, "You have mail")
 
 
 def door_switch_cb(door_switch):
     """Sends alert and take pictures if the door is broken into."""
     if door.is_open():
         if door.locked:
-            if DEBUG:
-                print("ALERT: Door opened while locked.")
-            else:
-                spb_cam.take_sequence()
-                send_msg(PHONE, "Unauthorized entry.")
+            print("ALERT: Door opened while locked.")
+            spb_cam.take_sequence()
+            send_msg(PHONE, "Unauthorized entry.")
 
         if door.unlocked:
-            if DEBUG:
-                print("INFO: Door opened while unlocked.")
+            print("INFO: Door opened while unlocked.")
 
     if door.is_closed():
-        if DEBUG:
-            print("INFO: Door closed. Locking up.")
+        print("INFO: Door closed. Locking up.")
         time.sleep(0.5)  # Give the door a chance to finish closing
         door.lock()
 
@@ -87,8 +80,7 @@ def main():
     GPIO.add_event_detect(door.switch_pin, GPIO.BOTH,
                           callback=door_switch_cb, bouncetime=1000)
 
-    if DEBUG:
-        print("INFO: Waiting for RFID card.")
+    print("INFO: Waiting for RFID card.")
     while True:
             uid = rfid.read_passive_target()
 
@@ -96,12 +88,10 @@ def main():
                 continue
 
             if binascii.hexlify(uid) == RFID_CARD:
-                if DEBUG:
-                    print("INFO: Found correct RFID card.")
+                print("INFO: Found correct RFID card.")
                 door.unlock()
             else:
-                if DEBUG:
-                    print("INFO: Found wrong RFID card.")
+                print("INFO: Found wrong RFID card.")
 
             time.sleep(1)
 
