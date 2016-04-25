@@ -112,8 +112,5 @@ def main():
     gsm.set_value("at+cmgf=1")
 
 if __name__ == '__main__':
-    try:
-        DEBUG = True
-        main()
-    finally:
-        GPIO.cleanup()
+    DEBUG = True
+    main()
